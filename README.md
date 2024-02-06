@@ -9,6 +9,8 @@ The objective of this project is to consolidate understanding of functions and l
 
 Open application in browser, then click on "Generate Password" to start the application.
 
+https://cenamia.github.io/password-generator/
+
 ## Usage
 Javascript
 
