@@ -99,40 +99,71 @@ function getPasswordOptions() {
 
   passwdLength = prompt("How many characters would you like your password to contain? Enter a number between 8 and 128");
 
-  if (isNaN(passwdLength)){
-    alert ("Password length must be provided as a number. Please try again");
+  if (isNaN(passwdLength)) {
+    alert("Password length must be provided as a number. Please try again");
     return false;
   }
 
-  if (passwdLength < 8 || passwdLength > 128){
+  if (passwdLength < 8 || passwdLength > 128) {
     alert("password length should be at least 8 characters and no more than 128 characters. Please try again");
     return false;
-    } 
+  }
 
-    specialChar = confirm("Click ok to confirm including special characters");
-  
-    numChar = confirm("Click ok to confirm including numeric characters");
-    
-    lowerCaseChar = confirm("Click ok to confirm including lowercase characters");
-    
-    upperCaseChar = confirm("Click ok to confirm including uppercase characters");
+  specialChar = confirm("Click ok to confirm including special characters");
 
-// validating that at least one character type will be selected.
+  numChar = confirm("Click ok to confirm including numeric characters");
 
-    if(specialChar === null && numChar === null && lowerCaseChar === null && upperCaseChar === null ){
-      return alert ("You must select at least one character type");
-      }
+  lowerCaseChar = confirm("Click ok to confirm including lowercase characters");
+
+  upperCaseChar = confirm("Click ok to confirm including uppercase characters");
+
+  // validating that at least one character type will be selected.
+
+  if (specialChar === null && numChar === null && lowerCaseChar === null && upperCaseChar === null) {
+    return alert("You must select at least one character type");
+  }
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {
-
+let getRandom = function (arr) {
+  console.log(arr[Math.floor(Math.random() * arr.length)]);
 }
 
 // Function to generate password with user input
-function generatePassword() {
 
+let newArr = []; // empty array will be used to concatenate existing arrays
+let generatedPsswd = ""; // empty string will be used to store the generated password
+
+function generatePassword() {
+  // validating statements - if statements true, existing arrays will be added to new array
+
+  if (specialChar === true) {
+    newArr = newArr.concat(specialCharacters);
+  }
+
+  if (numChar === true) {
+    newArr = newArr.concat(numericCharacters);
+  }
+
+  if (lowerCaseChar === true) {
+    newArr = newArr.concat(lowerCasedCharacters);
+  }
+
+  if (upperCaseChar === true) {
+    newArr = newArr.concat(upperCasedCharacters);
+
+  }
+  // Looping through password length and generate random password based on what number the user selected between 8-128
+
+  for (let i = 0; i < passwdLength; i++) {
+    let element = Math.floor(Math.random() * newArr.length);
+
+    generatedPsswd = generatedPsswd + newArr[element];
+
+  }
+  return generatedPsswd;
 }
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
