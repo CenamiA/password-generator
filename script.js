@@ -88,6 +88,8 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+// declaring functions
+
 let passwdLength;
 let specialChar;
 let numChar;
@@ -170,6 +172,9 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
+  
+  getPasswordOptions(); // function called inside writePassword so that the prompts are only activated when generated password is clicked
+
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
