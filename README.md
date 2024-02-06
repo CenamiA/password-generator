@@ -19,14 +19,6 @@ Provide instructions and examples for use. Include screenshots as needed.
 ![alt text](<images/1 option selected.png>)
 ![alt text](<images/4 options selected.png>)
 
-## Credits
-
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
-
 ## License
 
 Please refer to the license in the repo
