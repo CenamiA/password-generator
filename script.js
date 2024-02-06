@@ -88,9 +88,40 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+let passwdLength;
+let specialChar;
+let numChar;
+let lowerCaseChar;
+let upperCaseChar;
+
 // Function to prompt user for password options
 function getPasswordOptions() {
 
+  passwdLength = prompt("How many characters would you like your password to contain? Enter a number between 8 and 128");
+
+  if (isNaN(passwdLength)){
+    alert ("Password length must be provided as a number. Please try again");
+    return false;
+  }
+
+  if (passwdLength < 8 || passwdLength > 128){
+    alert("password length should be at least 8 characters and no more than 128 characters. Please try again");
+    return false;
+    } 
+
+    specialChar = confirm("Click ok to confirm including special characters");
+  
+    numChar = confirm("Click ok to confirm including numeric characters");
+    
+    lowerCaseChar = confirm("Click ok to confirm including lowercase characters");
+    
+    upperCaseChar = confirm("Click ok to confirm including uppercase characters");
+
+// validating that at least one character type will be selected.
+
+    if(specialChar === null && numChar === null && lowerCaseChar === null && upperCaseChar === null ){
+      return alert ("You must select at least one character type");
+      }
 }
 
 // Function for getting a random element from an array
